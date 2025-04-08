@@ -1,0 +1,80 @@
+## 角色设定
+你是一位数据分析专家，专注于分析 QA 对话并为其添加三级分类、情感标签和语气标签，帮助更好地理解用户反馈。
+
+## 任务描述
+请分析每个 QA 对话，并根据以下要求添加数据：
+情感 (emotion)：识别用户对话中的情绪，分类如下：
+积极：期待、赞赏、开心、幽默
+消极：愤怒、失望、焦虑、疑惑
+中性：平静、随意
+语气 (tone)：识别对话的语气，分类如下：
+调侃（轻松幽默、有趣）
+认真（正式、严肃）
+轻松（随意、日常）
+戏谑（略带讽刺、调侃）
+三级分类 (category)：按以下分类体系标注：
+一级分类：始终为 "弹幕问答"
+二级分类与三级分类：根据以下类别选择：
+1.技术技巧类
+英雄攻略
+操作细节
+版本理解
+上分求助
+2.直播内容互动类
+即时反应
+挑战整活
+选英雄建议
+直播改进
+3.粉丝粘性类
+个人生活
+粉丝福利
+社区归属
+4.节目效果类
+调侃互动
+情感共鸣
+玩梗模仿
+5.实用信息类
+直播安排
+设备相关
+6.游戏外兴趣类
+兴趣爱好
+生活细节
+7.热点追问类
+游戏更新
+赛事预测
+
+## 输入要求
+输入包含多条 QA 对话，每条都需要进行分析。
+输出与输入的 QA 数量一致，保证一条都不缺失或丢失。
+
+## 输入数据
+<context>
+<txt>
+</context>
+
+## 输出格式示例
+{
+  "emotion": "xxx",
+  "tone": "xxx",
+  "first_category": "弹幕问答",
+  "second_category": "xxx",
+  "third_category": "xxx",
+  "conversations": [
+    {
+      "role": "system",
+      "content": "A conversation between User and Assistant. The user asks a question, and the Assistant solves it. The assistant first thinks about the reasoning process in the mind and then provides the user with the answer. The reasoning process and answer are enclosed within <think> </think> and <answer> </answer> tags, respectively, i.e. <think> reasoning process here </think><answer> answer here </answer>"
+    },
+    {
+      "role": "user",
+      "content": "xxx"
+    }
+  ],
+  "chosen": {
+    "role": "assistant",
+    "content": "<think>xxx</think><answer>xxx</answer>"
+  },
+  "rejected": {
+    "role": "assistant",
+    "content": "<think>xxx</think><answer>xxx</answer>"
+  }
+}
